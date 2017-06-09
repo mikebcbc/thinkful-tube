@@ -1,14 +1,20 @@
+html {
+	background-color: #acd2ff;
+}
+
 body * {
 	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
 }
 
 h1, h2, h3 {
 	font-family: 'Raleway', sans-serif;
 	color: #FF5714;
+	margin: 20px 0 0 0;
 }
 
-html {
-	background-color: #acd2ff;
+main {
+	margin-top: 100px;
 }
 
 .logo-wrapper h1 {
@@ -38,5 +44,11 @@ html {
 	color: white;
 	background-color: #DD6E42;
 	border-radius: 5px;
-	padding: 10px 80px;
+	padding: 10px 60px;
+}
+
+@media screen and (max-width: 769px) {
+	.search-field {
+		width: 100%;
+	}
 }
