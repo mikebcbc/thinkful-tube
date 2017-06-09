@@ -56,6 +56,10 @@ main {
 	height: 170px;
 }
 
+.result h2 {
+	margin: 10px 0;
+}
+
 @media screen and (max-width: 769px) {
 	.search-field {
 		width: 100%;

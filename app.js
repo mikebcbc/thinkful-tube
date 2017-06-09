@@ -1,8 +1,9 @@
 var API_URL = "https://www.googleapis.com/youtube/v3/search";
+var YOUTUBE_LINK = "https://www.youtube.com/watch?v=";
 
 var RESULT_TEMPLATE = (
 	'<div class="col-4 result">' +
-		'<a href="">' +
+		'<a href="" target="_blank">' +
 			'<img src="" alt=""/>' +
 			'<h2></h2>' +
 		'</a>' +
@@ -15,7 +16,7 @@ function listenSubmit() {
 		e.preventDefault();
 		var searchTerm = $('.js-query').val();
 		// Pass into AJAX call function
-		getVideos(searchTerm, renderVideo);
+		getVideos(searchTerm, appendResults);
 		// When clicked, clear out input
 		$('.js-query').val("");
 	})
@@ -28,23 +29,36 @@ function getVideos(query, callback) {
 		data: {
 			part: "snippet",
 			key: config.API_KEY,
+			maxResults: 6,
 			q: query
 		},
 		success: callback
 	})
 }
 
-function renderVideo(result) {
-	console.log('pew!');
+function renderVideo(result, index) {
 	var template = $(RESULT_TEMPLATE);
 	// Find each part of the template, and replace text and attributes accordingly.
-	// Return & spit out the template variable
+	template.find("a").attr('href', YOUTUBE_LINK + result.id.videoId);
+	template.find("img").attr('src', result.snippet.thumbnails.medium.url);
+	template.find("h2").text(result.snippet.title);
+	if (index == 0 || index == 3) {
+		console.dir(template);
+		return '<div class="row">' + template;
+	} else if (index == 2 || index == 5) {
+		return template + '</div>';
+	} else {
+		return template;
+	}
 }
 
 function appendResults(data) {
 	// .map through data.items
-		// Run the renderVideo function for each item, with map method.
+	var results = data.items.map(function(item, index) {
+		return renderVideo(item, index)
+	});
 	// Append the results to js-results
+	$('.js-results').html(results);
 }
 
 $(listenSubmit);
