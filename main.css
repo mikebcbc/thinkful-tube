@@ -16,3 +16,12 @@ html {
 	font-size: 48px;
 	text-shadow: 1px 1px 5px black;
 }
+
+.search {
+	margin-top: 100px;
+}
+
+.search-field {
+	width: 100%;
+	border: none;
+}
