@@ -25,7 +25,7 @@ main {
 .search-field {
 	display: block;
 	width: 600px;
-	margin: 60px auto;
+	margin: 50px auto;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0 5px 10px rgba(75, 72, 72, 0.2);
@@ -45,6 +45,15 @@ main {
 	background-color: #DD6E42;
 	border-radius: 5px;
 	padding: 10px 60px;
+}
+
+.results-wrapper {
+	margin-top: 50px;
+}
+
+.result img {
+	width: 300px;
+	height: 170px;
 }
 
 @media screen and (max-width: 769px) {
