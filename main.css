@@ -1,42 +1,42 @@
 body * {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 h1, h2, h3 {
-	font-family: 'Pacifico', cursive;
-	color: #E74C3C;
+	font-family: 'Raleway', sans-serif;
+	color: #FF5714;
 }
 
 html {
-	background-color: #2C3E50;
+	background-color: #acd2ff;
 }
 
 .logo-wrapper h1 {
 	text-align: center;
 	font-size: 48px;
-	text-shadow: 1px 1px 5px black;
-}
-
-.search-wrapper {
-	margin-top: 80px;
 }
 
 .search-field {
 	display: block;
-	width: 80%;
-	margin: 0 auto;
+	width: 600px;
+	margin: 60px auto;
 	border: none;
-	height: 40px;
 	border-radius: 5px;
-	padding: 0 40px;
-	background: #ECF0F1;
+	box-shadow: 0 5px 10px rgba(75, 72, 72, 0.2);
+	color: #484e64;
+	padding: 20px;
+}
+
+.search-field::placeholder {
+  color: #7e899c;
 }
 
 .search-submit {
 	display: block;
-	margin: 50px auto 0 auto;
+	margin: 0 auto;
 	border: none;
-	background-color: #3498DB;
+	color: white;
+	background-color: #DD6E42;
 	border-radius: 5px;
 	padding: 10px 80px;
 }
