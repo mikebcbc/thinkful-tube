@@ -9,6 +9,29 @@ var RESULT_TEMPLATE = (
 	'</div>'
 );
 
+function listenSubmit() {
+	// Listen to the Submit button
+		// When clicked, clear out input
+		// Pass into AJAX call function
+}
+
+function getVideos(query, callback) {
+	// Send AJAX call with query
+	// On success, use callback
+}
+
+function renderVideo(result) {
+	var template = $(RESULT_TEMPLATE);
+	// Find each part of the template, and replace text and attributes accordingly.
+	// Return & spit out the template variable
+}
+
+function appendResults(data) {
+	// .map through data.items
+		// Run the renderVideo function for each item, with map method.
+	// Append the results to js-results
+}
+
 // $($.ajax({
 // 	url: API_URL,
 // 	data: {
