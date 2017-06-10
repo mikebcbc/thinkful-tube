@@ -11,6 +11,12 @@ var RESULT_TEMPLATE = (
 );
 
 function listenSubmit() {
+	// Listen to enter and trigger click
+	$('.js-query').keyup(function(e) {
+		if(e.keyCode == 13) {
+			$('.js-submit').click();
+		}
+	})
 	// Listen to the Submit button
 	$('.js-submit').click(function(e) {
 		e.preventDefault();
@@ -42,14 +48,7 @@ function renderVideo(result, index) {
 	template.find("a").attr('href', YOUTUBE_LINK + result.id.videoId);
 	template.find("img").attr('src', result.snippet.thumbnails.medium.url);
 	template.find("h2").text(result.snippet.title);
-	if (index == 0 || index == 3) {
-		console.dir(template);
-		return '<div class="row">' + template;
-	} else if (index == 2 || index == 5) {
-		return template + '</div>';
-	} else {
-		return template;
-	}
+	return template;
 }
 
 function appendResults(data) {
@@ -62,14 +61,3 @@ function appendResults(data) {
 }
 
 $(listenSubmit);
-
-// $($.ajax({
-// 	url: API_URL,
-// 	data: {
-// 		part: "snippet",
-// 		key: config.API_KEY,
-// 		q: "trump"
-// 	}
-// }).done(function(e) {
-// 	console.dir(e);
-// }))
