@@ -10,6 +10,8 @@ var RESULT_TEMPLATE = (
 	'</div>'
 );
 
+var row = null;
+
 function listenSubmit() {
 	// Listen to enter and trigger click
 	$('.js-query').keyup(function(e) {
@@ -44,20 +46,25 @@ function getVideos(query, callback) {
 
 function renderVideo(result, index) {
 	var template = $(RESULT_TEMPLATE);
+
+	if (index % 3 == 0) {
+		row = $('<div class="row">');
+		$('.js-results').append(row);
+	}
 	// Find each part of the template, and replace text and attributes accordingly.
 	template.find("a").attr('href', YOUTUBE_LINK + result.id.videoId);
 	template.find("img").attr('src', result.snippet.thumbnails.medium.url);
 	template.find("h2").text(result.snippet.title);
-	return template;
+	row.append(template);
 }
 
 function appendResults(data) {
 	// .map through data.items
-	var results = data.items.map(function(item, index) {
-		return renderVideo(item, index)
+	var results = data.items.forEach(function(item, index) {
+		return renderVideo(item, index);
 	});
 	// Append the results to js-results
-	$('.js-results').html(results);
+	// $('.js-results').html(results);
 }
 
 $(listenSubmit);
